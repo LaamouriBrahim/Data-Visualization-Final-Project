@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Ubuntu:wght@700&display=swap');
+
+
+a:visited {color:inherit;} /* Visited link    */
+a:hover {color:inherit;}   /* Mouse over link */
+a:active {color:inherit;}
+
+
+
+body {
+    background-color: white;
+}
+
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* section principlale */
+
+.bwhite {
+    padding:50px;
+    margin-top:30px;
+    background-color: white;
+    color:#242526;
+}
+
+.bblack {
+    padding:50px;
+    margin-top:30px;
+    background-color: #242526;
+    color:white;
+}
+
+
+.table{
+    border:1px solid black;
+    width: 100%;
+    height:auto;
+}
+
+
+td, th {
+    border: thin solid;
+    padding:10px;
+    }
+.table thead td:hover {
+    background-color: white;
+    color:black;
+}

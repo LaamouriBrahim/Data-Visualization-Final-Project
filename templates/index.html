@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Visualisation des données relatives au résultats de PIX </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+  <!--<link rel="stylesheet" href="style.css">-->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+    
+
+<body style = "background-color: white">
+
+
+    <div style ="margin-top: 100px;">
+        <!-- coté de la section Home-->
+        <h1 style="background-color: white ;text-align: center;font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000; color: #585858;"> Visualisation des données statistiques des résultats de PIX</h1> <br>
+
+    </div>
+
+      
+        <div id="container">
+          <br><br>
+          <div class = "bblack" >
+            
+            <h1 style="text-align: center;font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;"> Que veut dire PIX ?</h1> <br><br>
+
+            <p style = "font-size:18px;margin-left:10px;"><strong>PIX</strong> est une plateforme en ligne d'évaluation et de certification des compétences numériques.<br> La certification délivrée remplace le Brevet informatique et internet (B2i) pour les élèves et la Certification informatique et internet (C2i) pour les étudiants et les salariés. <br><br>
+            Dans les sections suivantes, vous trouverez les moyennes par compétences lors du positionnement de la certification PIX de l'année 2019 - 2020.<br><br>
+            Mais avant, voyons <strong>le niveau moyen attendu</strong>, voici donc un tableau illustrant ça pour chacune des 16 compétences :</p><br><br>
+
+            <table class="table">
+          <thead>
+            <tr>
+              <th>Compétence</th>
+              
+              <abbr><td title="Mener une recherche et une veille d’information">1.1</td></abbr>
+              
+              <abbr><td title="Gérer des données">1.2</td></abbr>
+              
+              <abbr><td title="Traiter des données">1.3</td></abbr>
+              
+              <abbr><td title="Interagir">2.1</td></abbr>
+              
+              <abbr><td title="Partager et publier">2.2</td></abbr>
+              
+              <abbr><td title="Collaborer">2.3</td></abbr>
+              
+              <abbr><td title="S'insérer dans le monde numérique">2.4</td></abbr>
+              
+              <abbr><td title="Développer des documents textuels">3.1</td></abbr>
+              
+              <abbr><td title="Développer des documents multimedia">3.2</td></abbr>
+              
+              <abbr><td title="Adapter les documents à leur finalité">3.3</td></abbr>
+              
+              <abbr><td title="Programmer">3.4</td></abbr>
+              
+              <abbr><td title="Sécuriser l'environnement numérique">4.1</td></abbr>
+              
+              <abbr><td title="Protéger les données personnelles et la vie privée">4.2</td></abbr>
+              
+              <abbr><td title="Protéger la santé, le bien-être et l'environnement">4.3</td></abbr>
+              
+              <abbr><td title="Résoudre des problèmes techniques">5.1</td></abbr>
+              
+              <abbr><td title="Construire un environnement numérique">5.2</td></abbr>
+
+              
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th>Niveau</th>
+              
+              <td>4</td>
+              
+              <td>4</td>
+              
+              <td>4</td>
+              
+              <td>4</td>
+              
+              <td>4</td>
+              
+              <td>4</td>
+              
+              <td>3</td>
+              
+              <td>4</td>
+              
+              <td>3</td>
+              
+              <td>4</td>
+              
+              <td>3</td>
+              
+              <td>4</td>
+              
+              <td>3</td>
+              
+              <td>3</td>
+              
+              <td>3</td>
+              
+              <td>3</td>
+              
+            </tr>
+          </tbody>
+        </table> <br><br><br><br>
+
+          </div>
+
+          <div class = "bwhite">
+              
+
+              <h1 style="text-align: center;font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;color : #585858;">
+          Signification de chaque compétence </h1>
+          <br><br><br>
+          <ul style = "font-size:20px;">
+          <div style = "display:grid;grid-template-columns: 1fr 1fr; grid-gap:20px;"> 
+            <!-- small container -> write on two aligned divs -->
+            <div>
+                <li> 1.1 = Mener une recherche et une veille d’information </li>
+                <li> 1.2 = Gérer des données</li>
+                <li> 1.3 = Traiter des données</li>
+                <li> 2.1 = Interagir</li>
+                <li> 2.2 = Partager et publier</li>
+                <li> 2.3 = Collaborer </li>
+                <li> 2.4 = S'insérer dans le monde numérique </li>
+                <li> 3.1 = Développer des documents textuels </li>
+                
+            </div>
+            <div>
+                <li> 3.2 = Développer des documents multimedia</li>
+                <li> 3.3 = Adapter les documents à leur finalité </li>
+                <li> 3.4 = Programmer </li>
+                <li> 4.1 = Sécuriser l'environnement numérique </li>
+                <li> 4.2 = Protéger les données personnelles et la vie privée</li>
+                <li> 4.3 = Protéger la santé, le bien-être et l'environnement</li>
+                <li> 5.1 = Résoudre des problèmes techniques</li>
+                <li> 5.2 = Construire un environnement numérique</li>
+             </div>   
+            </div>
+        </ul>
+
+        </div>
+
+        <div class="bblack">
+        <h1 style="font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;text-align: center;">
+          Quel est l'objectif de ce projet ?</h1> <br><br><br><br>
+
+          <p style = "font-size: 20px;">L'objectif de ce projet est de prendre en main des données sur les résultats des étudiants dans les 16 compétences du test PIX en réalisant les taches principales suivantes :<br>
+            <ol style = "margin:20px; font-size: 18px; font-weight:bold;">
+              <li> Extraction des données des résultats PIX des fichiers '.ods' données</li>
+              <li> Traitement de ces données avec le langage Python(Pandas/Numpy)</li>
+              <li> Utilisation de Flask (Python) pour renvoyer les données traités à des routes spécifique</li>
+              <li> Récupération de ces données par D3.JS et l'implémentation des visualisations de ces données en utilisant SVG html</li>
+            </ol>
+            </p>
+        </div>
+
+                                                  <!--  HISTOGRAMMES  MOYENNES ET ECARTS TYPES   -->
+    <h1 style="padding-top:50px;text-align: center;font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;color : #585858;">
+          Visualisation de Moyennes et écarts types de chaque compétences des trois années </h1>
+
+    <div class = "bwhite" style = "display: flex; justify-content: center;">
+
+        <svg id = "histo1" width="1000" height="450" style = "border:1px solid black;"></svg>
+
+        <script type="text/javascript">
+
+          d3.csv("http://127.0.0.1:5000/certification_pix_2018_2019.csv")
+          .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+
+                let avg = data.map(({ avg }) => avg);
+                let std = data.map(({ std }) => std);
+
+                let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+
+                const svg = d3.select('#histo1');
+
+                // dimensions
+                const width = 800;
+                const height = svg.attr('height');
+
+                // graph positionning in svg div
+
+
+                const margin = { top: 10, right: 10, bottom: 30, left: 30 };
+
+                // in between bars margin
+                let hist_margin = 10;
+
+                // visualized data
+                // Values were because csv couldn't be imported from flask (csv loaded in d3 = undefined object -> can't be used)
+
+                // width & height inside of the graph
+                const xlength = width - margin.left - margin.right ;
+                const ylength = height - margin.top - margin.bottom;
+
+                //defining scale functions / x & y axis
+                let xScale = d3.scaleBand()
+                    .domain(id_comp)
+                    .range([0, xlength]);
+
+                let yScale = d3.scaleLinear()
+                    .domain([0, 5])
+                    .range([ylength,0 ]);
+
+                //Creating the graph
+                const g = svg.append('g')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                g.append('g').call(d3.axisLeft(yScale));
+                g.append('g').call(d3.axisBottom(xScale))
+                    .attr('transform', `translate(0,${ylength})`);
+
+
+                // Making the histogram bars for average values
+
+                g.selectAll('rect')
+                    .data(avg)
+                    .enter()
+                    .append('rect')
+                    .attr("x", function (d, i) {
+                        return i * (xlength / avg.length ) + 5 ;
+                    })
+                    .attr("y", function (d) {
+                        return ylength - (d * ylength / 5);
+                    })
+                    .attr("width", (xlength / avg.length - hist_margin)/2)
+                    .attr("height", function (d) {
+                        return d * (ylength / 5);
+                    })
+                    .attr("fill", "silver")
+                    .attr("stroke", "#585858")
+
+
+
+                // Making the histogram bars for std (standard deviation) values 
+
+              g.selectAll('rect2').data(std)
+                .enter().append('rect')
+              .attr("x", function (d, i) {
+                  return (i * (xlength / std.length) + (xlength / std.length - hist_margin)/2 + 5); // x coor + width => it takes the right half)
+                  })
+              .attr("y", function (d) {
+                  return ylength - (d * ylength / 5);
+              })
+              .attr("width", (xlength / std.length - hist_margin)/2)
+              .attr("height", function (d) {
+                  return d * (ylength / 5);
+              })
+              .attr("fill", "Burlywood")
+              .attr("stroke", "#585858")
+
+                //Legend
+
+              svg.append("circle").attr("cx",850).attr("cy",40).attr("r", 10).style("fill", "silver").attr("stroke", "#585858")
+              svg.append("circle").attr("cx",850).attr("cy",70).attr("r", 10).style("fill", "Burlywood").attr("stroke", "#585858")
+              svg.append("text").attr("x", 880).attr("y", 40).text("Moyennes").style("font-size", "20px").attr("alignment-baseline","middle")
+              svg.append("text").attr("x", 880).attr("y", 70).text("Ecarts Types").style("font-size", "20px").attr("alignment-baseline","middle")
+
+              svg.append("text").attr("x", 100).attr("y", 30).text("Moyennes et écarts types de chaque compétence pour l'année 2018 / 2019").style("font-size", "20px").attr("alignment-baseline","middle")
+
+
+
+          });
+
+    </script>
+
+  </div>
+
+  <div class = "bwhite" style = "display: flex; justify-content: center;">
+        <svg id = "histo2" width="1000" height="450" style = "border:1px solid black;"></svg>
+
+        <script type="text/javascript">
+
+          d3.csv("http://127.0.0.1:5000/certification_pix_2019_2020.csv")
+          .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+
+                let avg = data.map(({ avg }) => avg);
+                let std = data.map(({ std }) => std);
+
+                let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+
+                const svg = d3.select('#histo2');
+
+                // dimensions
+                const width = 800;
+                const height = svg.attr('height');
+
+                // graph positionning in svg div
+
+
+                const margin = { top: 10, right: 10, bottom: 30, left: 30 };
+
+                // in between bars margin
+                let hist_margin = 10;
+
+                // visualized data
+                // Values were because csv couldn't be imported from flask (csv loaded in d3 = undefined object -> can't be used)
+
+                // width & height inside of the graph
+                const xlength = width - margin.left - margin.right ;
+                const ylength = height - margin.top - margin.bottom;
+
+                //defining scale functions / x & y axis
+                let xScale = d3.scaleBand()
+                    .domain(id_comp)
+                    .range([0, xlength]);
+
+                let yScale = d3.scaleLinear()
+                    .domain([0, 5])
+                    .range([ylength,0 ]);
+
+                //Creating the graph
+                const g = svg.append('g')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                g.append('g').call(d3.axisLeft(yScale));
+                g.append('g').call(d3.axisBottom(xScale))
+                    .attr('transform', `translate(0,${ylength})`);
+
+
+                // Making the histogram bars for average values
+
+                g.selectAll('rect')
+                    .data(avg)
+                    .enter()
+                    .append('rect')
+                    .attr("x", function (d, i) {
+                        return i * (xlength / avg.length ) + 5 ;
+                    })
+                    .attr("y", function (d) {
+                        return ylength - (d * ylength / 5);
+                    })
+                    .attr("width", (xlength / avg.length - hist_margin)/2)
+                    .attr("height", function (d) {
+                        return d * (ylength / 5);
+                    })
+                    .attr("fill", "silver")
+                    .attr("stroke", "#585858")
+
+
+
+                // Making the histogram bars for std (standard deviation) values 
+
+              g.selectAll('rect2').data(std)
+                .enter().append('rect')
+              .attr("x", function (d, i) {
+                  return (i * (xlength / std.length) + (xlength / std.length - hist_margin)/2 + 5); // x coor + width => it takes the right half)
+                  })
+              .attr("y", function (d) {
+                  return ylength - (d * ylength / 5);
+              })
+              .attr("width", (xlength / std.length - hist_margin)/2)
+              .attr("height", function (d) {
+                  return d * (ylength / 5);
+              })
+              .attr("fill", "Burlywood")
+              .attr("stroke", "#585858")
+
+                //Legend
+
+              svg.append("circle").attr("cx",850).attr("cy",40).attr("r", 10).style("fill", "silver").attr("stroke", "#585858")
+              svg.append("circle").attr("cx",850).attr("cy",70).attr("r", 10).style("fill", "Burlywood").attr("stroke", "#585858")
+              svg.append("text").attr("x", 880).attr("y", 40).text("Moyennes").style("font-size", "20px").attr("alignment-baseline","middle")
+              svg.append("text").attr("x", 880).attr("y", 70).text("Ecarts Types").style("font-size", "20px").attr("alignment-baseline","middle")
+
+              svg.append("text").attr("x", 100).attr("y", 30).text("Moyennes et écarts types de chaque compétence pour l'année 2019 / 2020").style("font-size", "20px").attr("alignment-baseline","middle")
+
+
+
+          });
+
+    </script>
+  </div>
+
+
+  <div class = "bwhite" style = "display: flex; justify-content: center;">
+        <svg id = "histo3" width="1000" height="450" style = "border:1px solid black;"></svg>
+
+        <script type="text/javascript">
+
+          d3.csv("http://127.0.0.1:5000/certification_pix_2020_2021.csv")
+          .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+
+                let avg = data.map(({ avg }) => avg);
+                let std = data.map(({ std }) => std);
+
+                let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+
+                const svg = d3.select('#histo3');
+
+                // dimensions
+                const width = 800;
+                const height = svg.attr('height');
+
+                // graph positionning in svg div
+
+
+                const margin = { top: 10, right: 10, bottom: 30, left: 30 };
+
+                // in between bars margin
+                let hist_margin = 10;
+
+
+                // width & height inside of the graph
+                const xlength = width - margin.left - margin.right ;
+                const ylength = height - margin.top - margin.bottom;
+
+                //defining scale functions / x & y axis
+                let xScale = d3.scaleBand()
+                    .domain(id_comp)
+                    .range([0, xlength]);
+
+                let yScale = d3.scaleLinear()
+                    .domain([0, 5])
+                    .range([ylength,0 ]);
+
+                //Creating the graph
+                const g = svg.append('g')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                g.append('g').call(d3.axisLeft(yScale));
+                g.append('g').call(d3.axisBottom(xScale))
+                    .attr('transform', `translate(0,${ylength})`);
+
+
+                // Making the histogram bars for average values
+
+                g.selectAll('rect')
+                    .data(avg)
+                    .enter()
+                    .append('rect')
+                    .attr("x", function (d, i) {
+                        return i * (xlength / avg.length ) + 5 ;
+                    })
+                    .attr("y", function (d) {
+                        return ylength - (d * ylength / 5);
+                    })
+                    .attr("width", (xlength / avg.length - hist_margin)/2)
+                    .attr("height", function (d) {
+                        return d * (ylength / 5);
+                    })
+                    .attr("fill", "silver")
+                    .attr("stroke", "#585858")
+
+
+
+                // Making the histogram bars for std (standard deviation) values 
+
+              g.selectAll('rect2').data(std)
+                .enter().append('rect')
+              .attr("x", function (d, i) {
+                  return (i * (xlength / std.length) + (xlength / std.length - hist_margin)/2 + 5); // x coor + width => it takes the right half)
+                  })
+              .attr("y", function (d) {
+                  return ylength - (d * ylength / 5);
+              })
+              .attr("width", (xlength / std.length - hist_margin)/2)
+              .attr("height", function (d) {
+                  return d * (ylength / 5);
+              })
+              .attr("fill", "Burlywood")
+              .attr("stroke", "#585858")
+
+                //Legend
+
+              svg.append("circle").attr("cx",850).attr("cy",40).attr("r", 10).style("fill", "silver").attr("stroke", "#585858")
+              svg.append("circle").attr("cx",850).attr("cy",70).attr("r", 10).style("fill", "Burlywood").attr("stroke", "#585858")
+              svg.append("text").attr("x", 880).attr("y", 40).text("Moyennes").style("font-size", "20px").attr("alignment-baseline","middle")
+              svg.append("text").attr("x", 880).attr("y", 70).text("Ecarts Types").style("font-size", "20px").attr("alignment-baseline","middle")
+
+
+              svg.append("text").attr("x", 100).attr("y", 30).text("Moyennes et écarts types de chaque compétence pour l'année 2020 / 2021").style("font-size", "20px").attr("alignment-baseline","middle")
+
+
+
+          });
+
+    </script>
+  </div>
+
+
+  <div class = "bblack">
+      <h1 style="font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;text-align: center;">
+          Analyses des histogrammes de moyennes et écarts types</h1><br><br><br><br>
+
+          <p>Tout d'abord, pour procéder à l'analyse de ces histogrammes, on doit comprendre ce que ça représente. Ces histogrammes sont bien des visualisations graphiques qui traduisent le niveau moyen par chacune des compétences, selon les années 2018/2019/2020 respectivement les graphes sont dans l'ordre des années. Ces graphes nous aident à mener des statistiques et une vision générale sur la ou les compétences qui nécessitent du travail à venir, ainsi de savoir celles les mieux/moins maitrisées.
+
+          Comme l'indique la légende les barres grises représentent les moyennes, et celles en jaune représentent l'écart type.
+          En observant, on peut rapidement identifier les compétences les mieux réussies qui sont bels et biens : la compétence 5.1 => Résoudre des problèmes techniques ; 5.2 => Construire un environnement numérique.
+          En revanche, celle la moins réussie est : 3.1 => Développer des documents textuels.
+
+          Afin de vous ramener à une conclusion plus concrete, voici un tableau adapté à l'année 2020-2021, qui indique le niveau moyen et le niveau attendu pour chaque compétence : </p>
+          <br><br><br>
+
+              <table class = "table">
+                <thead>
+                <tr>
+                    <th>Compétence</th>
+                        <abbr><td title="Mener une recherche et une veille d’information">1.1</td></abbr>
+                        <abbr><td title="Gérer des données">1.2</td></abbr>
+                        <abbr><td title="Traiter des données">1.3</td></abbr>
+                        <abbr><td title="Interagir">2.1</td></abbr>
+                        <abbr><td title="Partager et publier">2.2</td></abbr>
+                        <abbr><td title="Collaborer">2.3</td></abbr>
+                        <abbr><td title="S'insérer dans le monde numérique">2.4</td></abbr>
+                        <abbr><td title="Développer des documents textuels">3.1</td></abbr>
+                        <abbr><td title="Développer des documents multimedia">3.2</td></abbr>
+                        <abbr><td title="Adapter les documents à leur finalité">3.3</td></abbr>
+                        <abbr><td title="Programmer">3.4</td></abbr>
+                        <abbr><td title="Sécuriser l'environnement numérique">4.1</td></abbr>
+                        <abbr><td title="Protéger les données personnelles et la vie privée">4.2</td></abbr>
+                        <abbr><td title="Protéger la santé, le bien-être et l'environnement">4.3</td></abbr>
+                        <abbr><td title="Résoudre des problèmes techniques">5.1</td></abbr>
+                        <abbr><td title="Construire un environnement numérique">5.2</td></abbr>
+                </tr>
+                </thead>
+
+                <tr>
+                    <th>Niveau attendu</th>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                </tr>      
+
+                <tr>
+                    <th>Moyenne 2018-2019 </th>
+                        <td>2.76</td>
+                        <td>3.07</td>
+                        <td>2.47</td>
+                        <td>3.34</td>
+                        <td>2.97</td>
+                        <td>3.19</td>
+                        <td>2.85</td>
+                        <td>2.21</td>
+                        <td>2.65</td>
+                        <td>2.40</td>
+                        <td>2.23</td>
+                        <td>2.61</td>
+                        <td>2.44</td>
+                        <td>2.88</td>
+                        <td>3.33</td>
+                        <td>3.27</td>
+                </tr>
+
+                <th>Moyenne 2019-2020 </th>
+                        <td>2.54</td>
+                        <td>2.81</td>
+                        <td>2.13</td>
+                        <td>3.11</td>
+                        <td>2.87</td>
+                        <td>2.91</td>
+                        <td>2.94</td>
+                        <td>1.78</td>
+                        <td>2.09</td>
+                        <td>2.12</td>
+                        <td>2.84</td>
+                        <td>2.59</td>
+                        <td>2.49</td>
+                        <td>3.13</td>
+                        <td>3.63</td>
+                        <td>3.63</td>
+                </tr>
+
+
+                    <th>Moyenne 2020-2021 </th>
+                        <td>2.76</td>
+                        <td>3.07</td>
+                        <td>2.47</td>
+                        <td>3.34</td>
+                        <td>2.97</td>
+                        <td>3.19</td>
+                        <td>2.85</td>
+                        <td>2.21</td>
+                        <td>2.65</td>
+                        <td>2.40</td>
+                        <td>2.23</td>
+                        <td>2.61</td>
+                        <td>2.44</td>
+                        <td>2.88</td>
+                        <td>3.33</td>
+                        <td>3.27</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class = "bwhite" style = "display: flex; justify-content: center;">
+          <svg id = "boitem1" width="1100" height="600" style = "border:1px solid black;"></svg>
+            <script type="text/javascript">
+
+
+
+          // receiving & treating the box_plot data from the python code    
+          d3.csv("http://127.0.0.1:5000/boitem_2018_2019.csv")
+              .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+                let lowest = data.map(({ lowest }) => lowest);
+                let lower_quartile = data.map(({ lower_quartile }) => lower_quartile);
+                let median = data.map(({ median }) => median);
+                let higher_quartile = data.map(({ higher_quartile }) => higher_quartile);
+                let highest = data.map(({ highest }) => highest);
+                let id = data.map(({ id }) => id);
+
+                let boitem = [];
+                for(let i = 0; i < 16 ; i++) {
+                  let t_array = [];
+                  if(highest[i] > 5) { highest[i] = 6 ;}
+                  t_array.push(lowest[i],lower_quartile[i],median[i],higher_quartile[i],highest[i],id[i]);
+                  boitem.push(t_array);
+                }
+
+
+                const svg = d3.select('#boitem1');
+
+                 const width = 1000;
+                 const height = 450;
+
+                 let boxsize = 40;
+                 let hist_margin = 5;
+
+                 const margin = { top: 150, right: -50, bottom: -75, left: 50 };
+                 const xlength = width - margin.left - margin.right;
+                 const ylength = height - margin.top - margin.bottom;
+
+
+                // id des compétences
+                 let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+                 
+
+                 //Creating scale functions / x and y axis
+                 let xScale = d3.scaleBand()
+                 .domain(id_comp)
+                 .range([0, xlength]);
+
+                 let yScale = d3.scaleLinear()
+                 .domain([0, 5])
+                 .range([ylength,0 ]);
+
+                 const g = svg.append('g')
+                 .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                 g.append('g').call(d3.axisLeft(yScale));
+                 g.append('g').call(d3.axisBottom(xScale))
+                 .attr('transform', `translate(0,${ylength})`);
+
+
+                 // Creating the vertical Lines
+
+                 g.selectAll('vlines')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[0]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[4]));})
+                 .attr("stroke", "#585858")
+                 .attr("stroke-width", 5)
+
+
+                 // creating the boxes of the boite à moustaches
+                 g.selectAll('box')
+                 .data(boitem)
+                 .enter()
+                     .append("rect")    
+                 .attr("x",function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y",function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[3]));})
+                 .attr("height",function(d){
+                    return((height-margin.top-margin.bottom)/5*(d[3]-d[1]));
+                     })
+                 .attr("width", boxsize)
+                 .attr("stroke", "#585858")
+                 .style("fill", "silver");
+
+
+                 // creating midboitem
+                 g.selectAll('midboitem')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return(+boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("stroke", "black")
+                 .attr("stroke-width", 10);
+
+                 svg.append("text").attr("x", 300).attr("y", 25).text("Boite à moustaches des résultats de PIX de l'année 2018 / 2019").style("font-size", "20px").attr("alignment-baseline","middle")
+                 svg.append("text").attr("x", 350).attr("y", 50).text("(Remarque : Les valeurs maximales dépassant sont égales à 6)").style("font-size", "16px").attr("alignment-baseline","middle")
+                
+
+
+          })
+            </script>
+        </div>
+
+
+                <div class = "bwhite" style = "display: flex; justify-content: center;">
+          <svg id = "boitem2" width="1100" height="600" style = "border:1px solid black;"></svg>
+            <script type="text/javascript">
+
+
+
+          // receiving & treating the box_plot data from the python code    
+          d3.csv("http://127.0.0.1:5000/boitem_2019_2020.csv")
+              .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+                let lowest = data.map(({ lowest }) => lowest);
+                let lower_quartile = data.map(({ lower_quartile }) => lower_quartile);
+                let median = data.map(({ median }) => median);
+                let higher_quartile = data.map(({ higher_quartile }) => higher_quartile);
+                let highest = data.map(({ highest }) => highest);
+                let id = data.map(({ id }) => id);
+
+                let boitem = [];
+                for(let i = 0; i < 16 ; i++) {
+                  let t_array = [];
+                  if(highest[i] > 5) { highest[i] = 6 ;}
+                  t_array.push(lowest[i],lower_quartile[i],median[i],higher_quartile[i],highest[i],id[i]);
+                  boitem.push(t_array);
+                }
+
+
+                const svg = d3.select('#boitem2');
+
+                 const width = 1000;
+                 const height = 450;
+
+                 let boxsize = 40;
+                 let hist_margin = 5;
+
+                 const margin = { top: 150, right: -50, bottom: -75, left: 50 };
+                 const xlength = width - margin.left - margin.right;
+                 const ylength = height - margin.top - margin.bottom;
+
+
+                // id des compétences
+                 let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+                 
+
+                 //Creating scale functions / x and y axis
+                 let xScale = d3.scaleBand()
+                 .domain(id_comp)
+                 .range([0, xlength]);
+
+                 let yScale = d3.scaleLinear()
+                 .domain([0, 5])
+                 .range([ylength,0 ]);
+
+                 const g = svg.append('g')
+                 .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                 g.append('g').call(d3.axisLeft(yScale));
+                 g.append('g').call(d3.axisBottom(xScale))
+                 .attr('transform', `translate(0,${ylength})`);
+
+
+                 // Creating the vertical Lines
+
+                 g.selectAll('vlines')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[0]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[4]));})
+                 .attr("stroke", "#585858")
+                 .attr("stroke-width", 5)
+
+
+                 // creating the boxes of the boite à moustaches
+                 g.selectAll('box')
+                 .data(boitem)
+                 .enter()
+                     .append("rect")    
+                 .attr("x",function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y",function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[3]));})
+                 .attr("height",function(d){
+                    return((height-margin.top-margin.bottom)/5*(d[3]-d[1]));
+                     })
+                 .attr("width", boxsize)
+                 .attr("stroke", "#585858")
+                 .style("fill", "silver");
+
+
+                 // creating midboitem
+                 g.selectAll('midboitem')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return(+boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("stroke", "black")
+                 .attr("stroke-width", 10);
+
+                 svg.append("text").attr("x", 300).attr("y", 25).text("Boite à moustaches des résultats de PIX de l'année 2019 / 2020").style("font-size", "20px").attr("alignment-baseline","middle")
+                 svg.append("text").attr("x", 350).attr("y", 50).text("(Remarque : Les valeurs maximales dépassant sont égales à 6)").style("font-size", "16px").attr("alignment-baseline","middle")
+                
+
+
+          })
+            </script>
+        </div>
+
+
+                <div class = "bwhite" style = "display: flex; justify-content: center;">
+          <svg id = "boitem3" width="1100" height="600" style = "border:1px solid black;"></svg>
+            <script type="text/javascript">
+
+
+
+          // receiving & treating the box_plot data from the python code    
+          d3.csv("http://127.0.0.1:5000/boitem_2020_2021.csv")
+              .then(function(data) {
+
+                // transforming the array of objects ({avg : , std : }) to two  simple arrays
+                let lowest = data.map(({ lowest }) => lowest);
+                let lower_quartile = data.map(({ lower_quartile }) => lower_quartile);
+                let median = data.map(({ median }) => median);
+                let higher_quartile = data.map(({ higher_quartile }) => higher_quartile);
+                let highest = data.map(({ highest }) => highest);
+                let id = data.map(({ id }) => id);
+
+                let boitem = [];
+                for(let i = 0; i < 16 ; i++) {
+                  let t_array = [];
+                  if(highest[i] > 5) { highest[i] = 6 ;}
+                  t_array.push(lowest[i],lower_quartile[i],median[i],higher_quartile[i],highest[i],id[i]);
+                  boitem.push(t_array);
+                }
+
+
+                const svg = d3.select('#boitem3');
+
+                 const width = 1000;
+                 const height = 450;
+
+                 let boxsize = 40;
+                 let hist_margin = 5;
+
+                 const margin = { top: 150, right: -50, bottom: -75, left: 50 };
+                 const xlength = width - margin.left - margin.right;
+                 const ylength = height - margin.top - margin.bottom;
+
+
+                // id des compétences
+                 let id_comp = [1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 3.1, 3.2, 3.3, 3.4, 4.1, 4.2, 4.3, 5.1, 5.2];
+                 
+
+                 //Creating scale functions / x and y axis
+                 let xScale = d3.scaleBand()
+                 .domain(id_comp)
+                 .range([0, xlength]);
+
+                 let yScale = d3.scaleLinear()
+                 .domain([0, 5])
+                 .range([ylength,0 ]);
+
+                 const g = svg.append('g')
+                 .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                 g.append('g').call(d3.axisLeft(yScale));
+                 g.append('g').call(d3.axisBottom(xScale))
+                 .attr('transform', `translate(0,${ylength})`);
+
+
+                 // Creating the vertical Lines
+
+                 g.selectAll('vlines')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return((width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[0]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[4]));})
+                 .attr("stroke", "#585858")
+                 .attr("stroke-width", 5)
+
+
+                 // creating the boxes of the boite à moustaches
+                 g.selectAll('box')
+                 .data(boitem)
+                 .enter()
+                     .append("rect")    
+                 .attr("x",function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y",function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[3]));})
+                 .attr("height",function(d){
+                    return((height-margin.top-margin.bottom)/5*(d[3]-d[1]));
+                     })
+                 .attr("width", boxsize)
+                 .attr("stroke", "#585858")
+                 .style("fill", "silver");
+
+
+                 // creating midboitem
+                 g.selectAll('midboitem')
+                 .data(boitem)
+                 .enter()
+                 .append('line')
+                 .attr("x1", function(d){
+                    return(-boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("x2", function(d){
+                    return(+boxsize/2+(width-margin.left-margin.right)/16*(d[5]-1))+((width-margin.left-margin.right)/32);})
+                 .attr("y1", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("y2", function(d){
+                    return((height-margin.top-margin.bottom)-((height-margin.top-margin.bottom)/5*d[2]));})
+                 .attr("stroke", "black")
+                 .attr("stroke-width", 10);
+
+                 svg.append("text").attr("x", 300).attr("y", 25).text("Boite à moustaches des résultats de PIX de l'année 2020 / 2021").style("font-size", "20px").attr("alignment-baseline","middle")
+                 svg.append("text").attr("x", 350).attr("y", 50).text("(Remarque : Les valeurs maximales dépassant sont égales à 6)").style("font-size", "16px").attr("alignment-baseline","middle")
+                
+
+
+          })
+            </script>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class = "bblack">
+          <h1 style="font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;text-align: center;">
+          Analyses des Boites à moustaches</h1><br><br><br><br>
+
+            <p>Le graphique ci-dessus représente une boîte à moustaches, pour ceux qui connaissent pas l'interprétation de ces "boxplot", c'est une méthode efficace de présentation graphique de données numériques. Elle décrit les informations suivantes :
+            La plus petite observation (échantillon minimum), le quartile 1 (25%), la médiane (50%), le quartile 3 (75%) et la plus grande observation (échantillon maximum). La boîte à moustaches indique également les valeurs atypiques éventuelles.
+            Elle est construite de bas en haut, du quartile inférieur au quartile supérieur. Les moustaches connectent la boîte aux plus petites et aux plus grandes valeurs qui ne sont pas des valeurs atypiques éventuelles.
+
+            Passons maintenant à projeter cette interprétation sur l'année 2018-2019 :
+            Comme nous pouvons voir, ici les boîtes à moustaches s'étendent du premier au neuvième décile, avec le corps des boîtes entre le 1er et le 3éme quartile (Le trait en noir représente la médiane, séparant les étudiants en deux groupes.) . Ce qui veut dire :
+            - 80% des étudiants ont leur note entre les extremités de la boîte à moustache.
+            - 50% des étudiants ont leur notes dans le corps de la boîte.
+
+            L'analyse des boîtes pour chaque compétence illustre un niveau stable à peu prêt, avec des exceptions, commme les compétences 3.1 et 3.3 qui sont les moins réussies. A l'inverse, les compétences 5.1 et 5.2 sont biens réussies (comme indiqué dans l'analyse précédente concernant les histogrammes). </p>
+
+        </div>
+
+        <div class ="bwhite">
+
+          <h2 style = "text-align: center;"> Pourcentages des compétences certifié de l'Année 2018 - 2019  </h2><br><br>
+
+  <form>
+      <select>
+        <option onclick="update(data1)">1.1. Mener une recherche et une veille d’information</option>
+        <option onclick="update(data2)">1.2. Gérer des données</option>
+        <option onclick="update(data3)">1.3. Traiter des données</option>
+        <option onclick="update(data4)">2.1. Interagir</option>
+        <option onclick="update(data5)">2.2. Partager et publier</option>
+        <option onclick="update(data6)">2.3. Collaborer</option>
+        <option onclick="update(data7)">2.4. S’insérer dans le monde numérique</option>
+        <option onclick="update(data8)">3.1. Développer des documents textuels</option>
+        <option onclick="update(data9)">3.2. Développer des documents multimédia</option>
+        <option onclick="update(data10)">3.3. Adapter les documents à leur finalité</option>
+        <option onclick="update(data11)">3.4. Programmer</option>
+        <option onclick="update(data12)">4.1. Sécuriser l’environnement numérique</option>
+        <option onclick="update(data13)">4.2. Protéger les données personnelles et la vie privée</option>
+        <option onclick="update(data14)">4.3. Protéger la santé, le bien-être et l'environnement</option>
+        <option onclick="update(data15)">5.1. Résoudre des problèmes techniques</option>
+        <option onclick="update(data16)">5.2. Construire un environnement numérique</option>
+      </select>
+  </form>
+          <div id="pie" style = "display:flex;justify-content:center;"> </div>
+          <div id="legende"> </div>
+
+    <script>
+
+          d3.csv("http://127.0.0.1:5000/piechart_2018_2019.csv")
+        .then(function(data){
+
+          let data1= data[0]
+          let data2 = data[1]
+          let data3 = data[2]
+          let data4 = data[3]
+          let data5 = data[4]
+          let data6 = data[5]
+          let data7 = data[6]
+          let data8 = data[7]
+          let data9 = data[8]
+          let data10 = data[9]
+          let data11 = data[10]
+          let data12 = data[11]
+          let data13 = data[12]
+          let data14 = data[13]
+          let data15 = data[14]
+          let data16 = data[15]
+
+          // ce qui concerne le cercle //
+          let margin = 40
+          let width = 350
+          let height = 350
+
+        let legende=["Pourcentage de certifiés","Pourcentage de non-certifiés"];
+
+        let colorlegend = d3.scaleOrdinal()
+          .range(["grey","orange"]);
+
+        let radius = Math.min(width, height) / 2 - margin
+
+        let svg = d3.select("#pie")
+          .append("svg")
+            .attr("width", '650px')
+            .attr("height", '500px')
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      function update(data){
+      
+        let color = d3.scaleOrdinal()
+          .domain(["a","b"])
+          .range(["grey","orange"]);
+      
+        let pie = d3.pie()
+          .value(function(d) {return d.value; })
+        let data_ready = pie(d3.entries(data))
+        // Now I know that group A goes from 0 degrees to x degrees and so on.
+
+        // shape helper to build arcs:
+        let arcGenerator = d3.arc()
+          .innerRadius(0)
+          .outerRadius(radius)
+
+        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+        svg
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('path')
+            .attr('d', arcGenerator)
+            .attr('fill', function(d){ return(color(d.data.key)) })
+
+            .style("opacity", 8);
+
+        // Now add the annotation. Use the centroid method to get the best coordinates
+        svg
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('text')
+          .text(function(d){ return d.data.value+"%"})
+          .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+          .style("text-anchor", "middle")
+          .style("font-size", 17)
+        
+        let legendG = svg.selectAll(".legend")
+              .data(pie(data_ready))
+              .enter().append("g")
+              .attr("transform", function(d,i){
+          return "translate(" + (width - 200) + "," + (i * 20 + 20) + ")";
+              })
+              .attr("class", "legend");   
+            // ce qui concerne la legende //
+            legendG.append("rect")
+              .attr("width", 10)
+              .attr("height", 10)
+              .attr('fill', function(d,i){ return(colorlegend(i)) })
+            
+            legendG.append("text")
+              .text(function(d,i){
+          return legende[i];
+              })
+              .style("font-size", 12)
+              .attr("y", 10)
+              .attr("x", 11);
+        
+      svg.exit().remove();
+      
+      }
+      // par défault // 
+      update(data1);
+
+      
+            
+  });
+
+      
+    </script>
+
+
+        </div>
+
+
+        <div class = "bwhite">
+          
+          <h2 style = "text-align: center;"> Pourcentages des compétences certifié de l'Année 2019 - 2020  </h2><br><br>
+    <form>
+      <select>
+        <option onclick="update1(data1)">1.1. Mener une recherche et une veille d’information</option>
+        <option onclick="update1(data2)">1.2. Gérer des données</option>
+        <option onclick="update1(data3)">1.3. Traiter des données</option>
+        <option onclick="update1(data4)">2.1. Interagir</option>
+        <option onclick="update1(data5)">2.2. Partager et publier</option>
+        <option onclick="update1(data6)">2.3. Collaborer</option>
+        <option onclick="update1(data7)">2.4. S’insérer dans le monde numérique</option>
+        <option onclick="update1(data8)">3.1. Développer des documents textuels</option>
+        <option onclick="update1(data9)">3.2. Développer des documents multimédia</option>
+        <option onclick="update1(data10)">3.3. Adapter les documents à leur finalité</option>
+        <option onclick="update1(data11)">3.4. Programmer</option>
+        <option onclick="update1(data12)">4.1. Sécuriser l’environnement numérique</option>
+        <option onclick="update1(data13)">4.2. Protéger les données personnelles et la vie privée</option>
+        <option onclick="update1(data14)">4.3. Protéger la santé, le bien-être et l'environnement</option>
+        <option onclick="update1(data15)">5.1. Résoudre des problèmes techniques</option>
+        <option onclick="update1(data16)">5.2. Construire un environnement numérique</option>
+      </select>
+    </form>
+
+      <div id="pie2" style = "display:flex;justify-content:center;"> </div>
+  
+      <div id="legend"> </div>
+    <script>
+
+      d3.csv("http://127.0.0.1:5000/piechart_2019_2020.csv")
+        .then(function(data){
+
+          // stocking the data that we received from the flask route
+          let data1= data[0]
+          let data2 = data[1]
+          let data3 = data[2]
+          let data4 = data[3]
+          let data5 = data[4]
+          let data6 = data[5]
+          let data7 = data[6]
+          let data8 = data[7]
+          let data9 = data[8]
+          let data10 = data[9]
+          let data11 = data[10]
+          let data12 = data[11]
+          let data13 = data[12]
+          let data14 = data[13]
+          let data15 = data[14]
+          let data16 = data[15]
+
+
+      
+        let margin = 40
+        let width = 350
+          let height = 350
+
+        let legend=["Pourcentage de certifiés","Pourcentage de non-certifiés"];
+
+        let colorlegend = d3.scaleOrdinal()
+          .range(["grey","orange"]);
+
+        let radius = Math.min(width, height) / 2 - margin
+
+        let svgg2 = d3.select("#pie2")
+          .append("svg")
+            .attr("width", '650px')
+            .attr("height", '500px')
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      function update1(data){
+      
+        let color = d3.scaleOrdinal()
+          .domain(["a","b"])
+          .range(["grey","orange"]);
+      
+        let pie2 = d3.pie()
+          .value(function(d) {return d.value; })
+        let data_ready = pie2(d3.entries(data))
+        // Now I know that group A goes from 0 degrees to x degrees and so on.
+
+        // shape helper to build arcs:
+        let arcGenerator = d3.arc()
+          .innerRadius(0)
+          .outerRadius(radius)
+
+
+        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+        svgg2
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('path')
+            .attr('d', arcGenerator)
+            .attr('fill', function(d){ return(color(d.data.key)) })
+            .style("opacity", 8);
+            
+
+        // Now add the annotation. Use the centroid method to get the best coordinates
+        svgg2
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('text')
+          .text(function(d){ return d.data.value+"%"})
+          .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+          .style("text-anchor", "middle")
+          .style("font-size", 17)
+        
+        let legendG = svgg2.selectAll(".legend")
+              .data(pie2(data_ready))
+              .enter().append("g")
+              .attr("transform", function(d,i){
+          return "translate(" + (width - 200) + "," + (i * 20 + 20) + ")";
+              })
+              .attr("class", "legend");   
+            
+            legendG.append("rect")
+              .attr("width", 10)
+              .attr("height", 10)
+              .attr('fill', function(d,i){ return(colorlegend(i)) })
+            
+            legendG.append("text")
+              .text(function(d,i){
+          return legend[i];
+              })
+              .style("font-size", 12)
+              .attr("y", 10)
+              .attr("x", 11);
+        
+      svgg2.exit().remove();
+      
+      }
+      
+      update1(data1);
+  });
+    </script>
+
+        </div>
+
+        <div class = "bwhite">
+          
+         <h2 style = "text-align: center;"> Pourcentages des compétences certifié de l'Année 2020 - 2021  </h2><br><br>
+    <form>
+      <select>
+        <option onclick="update2(data1)">1.1. Mener une recherche et une veille d’information</option>
+        <option onclick="update2(data2)">1.2. Gérer des données</option>
+        <option onclick="update2(data3)">1.3. Traiter des données</option>
+        <option onclick="update2(data4)">2.1. Interagir</option>
+        <option onclick="update2(data5)">2.2. Partager et publier</option>
+        <option onclick="update2(data6)">2.3. Collaborer</option>
+        <option onclick="update2(data7)">2.4. S’insérer dans le monde numérique</option>
+        <option onclick="update2(data8)">3.1. Développer des documents textuels</option>
+        <option onclick="update2(data9)">3.2. Développer des documents multimédia</option>
+        <option onclick="update2(data10)">3.3. Adapter les documents à leur finalité</option>
+        <option onclick="update2(data11)">3.4. Programmer</option>
+        <option onclick="update2(data12)">4.1. Sécuriser l’environnement numérique</option>
+        <option onclick="update2(data13)">4.2. Protéger les données personnelles et la vie privée</option>
+        <option onclick="update2(data14)">4.3. Protéger la santé, le bien-être et l'environnement</option>
+        <option onclick="update2(data15)">5.1. Résoudre des problèmes techniques</option>
+        <option onclick="update2(data16)">5.2. Construire un environnement numérique</option>
+      </select>
+    </form>
+
+      <div id="pie3" style = "display:flex;justify-content:center;"> </div>
+  
+      <div id="legend"></div>
+    <script>
+
+     d3.csv("http://127.0.0.1:5000/piechart_2020_2021.csv")
+        .then(function(data){
+
+          let data1= data[0]
+          let data2 = data[1]
+          let data3 = data[2]
+          let data4 = data[3]
+          let data5 = data[4]
+          let data6 = data[5]
+          let data7 = data[6]
+          let data8 = data[7]
+          let data9 = data[8]
+          let data10 = data[9]
+          let data11 = data[10]
+          let data12 = data[11]
+          let data13 = data[12]
+          let data14 = data[13]
+          let data15 = data[14]
+          let data16 = data[15]
+
+
+
+          let margin = 40
+        let width = 350
+          let height = 350
+
+        let legend=["Pourcentage de certifiés","Pourcentage de non-certifiés"];
+
+        let colorlegend = d3.scaleOrdinal()
+          .range(["grey","orange"]);
+
+        let radius = Math.min(width, height) / 2 - margin
+
+        let svg2 = d3.select("#pie3")
+          .append("svg")
+            .attr("width", '650px')
+            .attr("height", '500px')
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      function update2(data){
+      
+        let color = d3.scaleOrdinal()
+          .domain(["a","b"])
+          .range(["grey","orange"]);
+      
+        let pie3 = d3.pie()
+          .value(function(d) {return d.value; })
+        let data_ready = pie3(d3.entries(data))
+        // Now I know that group A goes from 0 degrees to x degrees and so on.
+
+        // shape helper to build arcs:
+        let arcGenerator = d3.arc()
+          .innerRadius(0)
+          .outerRadius(radius)
+
+        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+        svg2
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('path')
+            .attr('d', arcGenerator)
+            .attr('fill', function(d){ return(color(d.data.key)) })
+
+            .style("opacity", 8);
+
+        // Now add the annotation. Use the centroid method to get the best coordinates
+        svg2
+          .selectAll('mySlices')
+          .data(data_ready)
+          .enter()
+          .append('text')
+          .text(function(d){ return d.data.value+"%"})
+          .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+          .style("text-anchor", "middle")
+          .style("font-size", 17)
+        
+        let legendG = svg2.selectAll(".legend")
+              .data(pie3(data_ready))
+              .enter().append("g")
+              .attr("transform", function(d,i){
+          return "translate(" + (width - 200) + "," + (i * 20 + 20) + ")";
+              })
+              .attr("class", "legend");   
+            
+            legendG.append("rect")
+              .attr("width", 10)
+              .attr("height", 10)
+              .attr('fill', function(d,i){ return(colorlegend(i)) })
+            
+            legendG.append("text")
+              .text(function(d,i){
+          return legend[i];
+              })
+              .style("font-size", 12)
+              .attr("y", 10)
+              .attr("x", 11);
+        
+      svg.exit().remove();
+      
+      }
+      
+      update2(data1);
+      
+
+
+            
+  });
+      
+    </script>
+
+        </div>
+
+
+        <div class = "bblack">
+
+            <h1 style="font-family: 'Gill Sans', sans-serif ;font-size:75px;font-weight: 1000;text-align: center;">
+          Analyses des Piecharts des pourcentages de compétences certifiés</h1><br><br><br><br>
+            
+            <p>Tout d'abord, on a choisit de représenter les compétences certifiées et celles non certifiées sous forme
+            d'un graphique circulaire, car ce dernier permet d'identifier facilement l'information qui est bel et biens ici la certification d'une compétence.<br>
+            Le cercle représente le concept d'ensemble (100 %).  D'où comme on peut voir, on a 2 pourcentages dans chacun des 3 cercles qui représentent 
+            3 années, tel qu'une portion représente les compétences acquises et l'autre pour celles non acquises et qui nécessitent du travail à venir.
+            <br><br>
+            En observant les pourcentages, on peut déduire en quelque sorte l'évolution de la certification de chacune des compétences chaque année.
+            Mais on constate que l'évolution est partielle qui change d'environ de +-1% à +-5% d'une année à l'autre.
+
+            <br>
+
+            Les pourcentages nous montrent la compétence la plus réussie et celle la moins réussie chaque année, voyons ça sous forme d'un tableau :<br> <br> </p> 
+
+              <table class = "table">
+                    <thead>
+                      <tr>
+                        <th>Année</th>
+                                <td>2018-2019</td>
+                                <td >2019-2020</td>
+                                <td >2020-2021</td>
+                </tr>
+            
+                </thead>
+
+                <tr>
+                        <th>Compétence la plus réussie</th>
+                                <td> 2.1. Intéragir</td>
+                                <td> 3.4. Programmer</td>
+                                <td> 5.1. Résoudre des problèmes techniques</td>            
+                <tr>
+                        <th>Compétence la moins réussie</th>
+                                <td>3.3. Adapter les documents à leur finalité</td>
+                                <td>3.3. Adapter les documents à leur finalité</td>
+                                <td>3.3. Adapter les documents à leur finalité </td>   
+            </table>
+
+            <br> <br>
+            <p> On constate d'après ces statistiques, que la compétence 3.3 : Adapter les documents à leur finalité est la compétence la moins réussies 3 années consécutives.
+            <br>D'où, on conclut que cette compétence nécessite du travail par la suite. </p>
+
+
+        </div>
+
+
+        <div class = "bwhite">
+        
+        <h3 style = "text-align: center;">Projet réalisé par <strong>LAAMOURI Brahim </strong> dans le cadre du Projet CMI 2020 / 2021 Université de Bordeaux</h3>
+        </div>
+
+
+  </body>
+</html>
